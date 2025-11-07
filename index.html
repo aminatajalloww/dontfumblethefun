@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don't Fumble The Fun | Safer Campus Initiative</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #ec4899 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        header {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .big-ten-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .mission {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .mission h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .key-messages {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(124, 58, 237, 0.3));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .key-messages h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .message-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #fbbf24;
+        }
+
+        .message-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #fbbf24;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 20px rgba(245, 87, 108, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(245, 87, 108, 0.6);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .emergency-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .emergency-banner a {
+            color: #fbbf24;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+            font-size: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div style="font-weight: bold; font-size: 1.2rem;">🏈 Don't Fumble The Fun</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#resources">Resources</a>
+            <a href="#gameplan">Game Plan</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>🏈 Don't Fumble The Fun</h1>
+        <p class="tagline">Your Game Plan for a Safer, Healthier College Experience</p>
+        <div class="big-ten-badge">Big Ten Universities Initiative</div>
+    </header>
+
+    <div class="emergency-banner">
+        🚨 EMERGENCY? Call 911 or Campus Security Immediately | Crisis Text Line: Text HOME to 741741
+    </div>
+
+    <div class="container">
+        <div class="mission" id="about">
+            <h2>Our Mission: Keep the Fun, Ditch the Risk</h2>
+            <p>
+                We're here to help first-year students at Big Ten Universities make smart choices about alcohol. College is about new experiences, 
+                lasting friendships, and unforgettable memories—but alcohol misuse can sideline your goals and put your health at risk. 
+                Our campaign gives you the tools to recognize your triggers, support your friends, and keep the good times rolling without the regrets.
+            </p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">20%</div>
+                <div class="stat-label">Target Reduction in ED Visits by May 2027</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">75%</div>
+                <div class="stat-label">Goal: Students Acting as Active Bystanders</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">18-25</div>
+                <div class="stat-label">Age Range: Your Brain is Still Developing</div>
+            </div>
+        </div>
+
+        <div class="key-messages">
+            <h2>Key Messages: Real Talk</h2>
+            <div class="message-item">
+                <h3>🧠 Protect Your Developing Brain</h3>
+                <p>Your prefrontal cortex isn't fully developed until your mid-20s. Alcohol misuse can impact impulse control, decision-making, and your academic success. Know your triggers and make choices that support your future.</p>
+            </div>
+            <div class="message-item">
+                <h3>🤝 Speak Up, Step Up</h3>
+                <p>Being an active bystander isn't about being a buzzkill—it's about looking out for your squad. If you see someone overdoing it, step in. Your support could prevent a trip to the ER or worse.</p>
+            </div>
+            <div class="message-item">
+                <h3>📚 Succeed in School and Life</h3>
+                <p>Alcohol misuse affects your health, safety, grades, and campus experience. Strong policies, prevention programs, and supportive friends create an environment where everyone can thrive.</p>
+            </div>
+        </div>
+
+        <section id="resources">
+            <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 2rem;">Resources & Tools</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📱</div>
+                    <h3>Follow Us on Social</h3>
+                    <p>Get tips on drinking safely, especially during game days. Follow @DontFumbleTheFun for memes, facts, and real stories from students like you.</p>
+                </div>
+
+                <div class="resource-card" id="gameplan">
+                    <div class="resource-icon">📖</div>
+                    <h3>Download The Game Plan</h3>
+                    <p>Our interactive booklet helps you track drinks, understand standard serving sizes, recognize binge drinking, and stay hydrated. Perfect for tailgates and parties!</p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">🎯</div>
+                    <h3>Know Your Triggers</h3>
+                    <p>Stress, peer pressure, FOMO? Learn to identify what makes you want to drink and develop strategies to resist social pressure while still having a great time.</p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">🛡️</div>
+                    <h3>Bystander Training</h3>
+                    <p>Learn how to recognize signs of alcohol poisoning, intervene safely, and be the friend who makes a difference. We'll show you how to step up without being awkward.</p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">📞</div>
+                    <h3>Campus Resources</h3>
+                    <p>Find counseling services, health centers, support groups, and confidential hotlines available at your Big Ten campus. You're never alone.</p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">🎉</div>
+                    <h3>Sober Fun Ideas</h3>
+                    <p>Who says you need alcohol to have fun? Discover alcohol-free events, activities, and ways to enjoy campus life without the hangover.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section" id="contact">
+            <h2>Get Involved</h2>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">Ready to make your campus safer? Here's how you can take action:</p>
+            <ul style="text-align: left; max-width: 600px; margin: 2rem auto; font-size: 1.1rem; line-height: 2;">
+                <li>✅ Engage with our social media content and share with friends</li>
+                <li>✅ Download resources from our website</li>
+                <li>✅ Attend tabling events and grab Game Plan booklets at tailgates</li>
+                <li>✅ Reach out if you have questions or need support</li>
+                <li>✅ Become an active bystander and look out for your peers</li>
+            </ul>
+            <div class="cta-buttons">
+                <button class="cta-button" onclick="alert('Download coming soon! Check back or follow us on social media.')">Download Game Plan</button>
+                <button class="cta-button secondary" onclick="alert('Email us at: info@dontfumblethefun.org')">Contact Us</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h3 style="margin-bottom: 1rem;">Don't Fumble The Fun</h3>
+        <p>A Big Ten Universities Alcohol Prevention Initiative</p>
+        <p style="margin-top: 1rem;">Helping first-year students make safer choices, one game at a time.</p>
+        
+        <div class="social-links">
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="TikTok">🎵</a>
+        </div>
+        
+        <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2025 Don't Fumble The Fun. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.7;">
+            This campaign is part of a broader effort to reduce alcohol-related harm among college students.<br>
+            Target completion: May 2027
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
